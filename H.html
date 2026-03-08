@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>የበፍቃዱ ፖርትፎሊዮ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* 1. መሠረታዊ ቅንጅት */
+        html {
+            scroll-behavior: smooth;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background-color: #fff;
+            line-height: 1.6;
+        }
+
+        /* 2. ሜኑ (Navbar) */
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #333;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        nav .logo {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* 3. Hero Section */
+        .hero {
+            background-color: #2c3e50;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+        .my-name {
+            color: #3498db;
+            font-size: 35px;
+        }
+        .btn {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* 4. Sections General */
+        .about, .skills, .contact {
+            padding: 100px 10% 60px;
+            text-align: center;
+        }
+
+        /* 5. About Section (ፎቶው የተስተካከለበት) */
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+        .about-text {
+            flex: 1;
+            min-width: 280px;
+            text-align: left;
+        }
+        .about-image {
+            flex: 1;
+            min-width: 280px;
+            height: 400px; /* የፎቶው ቁመት */
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* ፎቶው ሳይለጠጥ እንዲሞላ */
+        }
+
+        /* 6. Skills Grid */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .skill-card {
+            background: white;
+            padding: 30px;
+            width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+        .skill-card i {
+            font-size: 40px;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        /* 7. Contact Form */
+        .contact-form {
+            max-width: 450px;
+            margin: 30px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .contact-form input, .contact-form textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            outline: none;
+        }
+        .contact-form input:focus {
+            border-color: #3498db;
+        }
+
+        /* 8. Responsive */
+        @media (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+            }
+            .about-text {
+                text-align: center;
+            }
+            .my-name {
+                font-size: 28px;
+            }
+        }
+        
+        .dark-theme {
+    background-color: #1a1a1a;
+    color: #f4f4f4;
+}
+.dark-theme .about, .dark-theme .contact {
+    background-color: #222;
+}
+.dark-theme .skill-card {
+    background-color: #333;
+    color: white;
+}
+
+/* ፅሁፎቹ ቀስ ብለው እንዲመጡ (Fade In) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content, .about-container, .skill-card, .contact-form {
+    animation: fadeInUp 1s ease-out;
+}
+
+/* ፎተር (Footer) ስታይል */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 30px 10px;
+    margin-top: 50px;
+}
+
+.social-links {
+    margin-bottom: 15px;
+}
+
+.social-links a {
+    color: white;
+    font-size: 20px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: #3498db;
+}
+
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">ፖርትፎሊዮ</div>
+        <ul>
+            <li><a href="#home">ቤት</a></li>
+            <li><a href="#about">ስለ እኔ</a></li>
+            <li><a href="#skills">ችሎታዎች</a></li>
+            <li><a href="#contact">አግኙኝ</a></li>
+        </ul>
+        <button id="dark-mode-toggle" class="btn-sm">🌙</button>
+
+        
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>ሰላም፣ እኔ <span class="my-name">በፍቃዱ ክፍሌ</span> ነኝ</h1>
+            <p>የዌብሳይት አልሚ (Web Developer) ለመሆን እየተማርኩ ያለሁ የቴክኖሎጂ አፍቃሪ።</p>
+            <button class="btn" onclick="window.location.href='#contact'">አግኙኝ</button>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>ስለ እኔ</h2>
+                <p>ሰላም! እኔ አዲስ የዌብሳይት አልሚ ነኝ። በአሁኑ ሰዓት ትኩረቴን ሙሉ በሙሉ HTML እና CSS በመማር ላይ አድርጌያለሁ። ቴክኖሎጂን በመጠቀም አዳዲስ ነገሮችን መፍጠር ደስ ይለኛል።</p>
+                <p>ይህንን ዌብሳይት በ Acode ስልኬን በመጠቀም ነው የገነባሁት።</p>
+            </div>
+            <div class="about-image">
+                <img src="uhuh.jpg" alt="የበፍቃዱ ፎቶ" class="profile-img">
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <h2>የእኔ ችሎታዎች</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fab fa-html5"></i>
+                <h3>HTML</h3>
+                <p>የዌብሳይት አወቃቀርን የመገንባት ችሎታ።</p>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-css3-alt"></i>
+                <h3>CSS</h3>
+                <p>የዲዛይንና የማሳመሪያ ጥበብ።</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Responsive</h3>
+                <p>ለስልክ ማስተካከያ የመስራት ችሎታ።</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>ያግኙኝ</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="ስምዎ" required>
+            <input type="email" placeholder="ኢሜልዎ" required>
+            <textarea placeholder="መልዕክትዎ" rows="5"></textarea>
+            <button type="submit" class="btn">ላክ</button>
+        </form>
+    </section>
+<script>
+    const toggleBtn = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+
+    toggleBtn.addEventListener('click', () => {
+        body.classList.toggle('dark-theme');
+        if(body.classList.contains('dark-theme')) {
+            toggleBtn.innerText = "☀️";
+        } else {
+            toggleBtn.innerText = "🌙";
+        }
+    });
+</script>
+
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+        <p>© 2024 በበፍቃዱ ክፍሌ የተሰራ | መብቱ በህግ የተጠበቀ ነው</p>
+    </footer>
+
+</body>
+</html>
